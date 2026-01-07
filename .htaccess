@@ -1,0 +1,21 @@
+# Configuration Apache pour ULC PDA
+
+# Activer le moteur de réécriture
+RewriteEngine On
+
+# Rediriger toutes les requêtes vers public/index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/index.php [QSA,L]
+
+# Protection des fichiers sensibles
+<FilesMatch "\.(sql|log|ini|conf)$">
+    Require all denied
+</FilesMatch>
+
+# Sécurité supplémentaire
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

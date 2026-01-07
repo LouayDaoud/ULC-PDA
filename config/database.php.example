@@ -1,0 +1,15 @@
+<?php
+/**
+ * Configuration de la base de données
+ * 
+ * Copiez ce fichier en database.php et remplissez vos paramètres
+ */
+
+return [
+    'host' => 'localhost',
+    'dbname' => 'pda_ulc',  // Remplacez par le nom de votre base de données
+    'username' => 'root',
+    'password' => '',        // Remplacez par votre mot de passe
+    'charset' => 'utf8mb4'
+];
+
