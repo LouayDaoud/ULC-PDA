@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS radios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     code VARCHAR(50) NOT NULL UNIQUE,
     serial_number VARCHAR(100) NULL,
+    mac_address VARCHAR(17) NULL COMMENT 'Adresse MAC au format XX:XX:XX:XX:XX:XX',
     model VARCHAR(100) NULL,
     status ENUM('disponible', 'empruntee', 'reparation', 'rebut') NOT NULL DEFAULT 'disponible',
     activity_id INT NULL,

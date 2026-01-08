@@ -58,7 +58,7 @@ class ReportController extends BaseController {
     }
 
     private function exportRadios($output, $db) {
-        fputcsv($output, ['Code', 'Numéro de série', 'Modèle', 'État', 'Activité', 'Commentaires', 'Créé le']);
+        fputcsv($output, ['Code', 'Numéro de série', 'Adresse MAC', 'Modèle', 'État', 'Activité', 'Commentaires', 'Créé le']);
         $radios = $db->fetchAll(
             "SELECT r.*, a.name as activity_name 
              FROM radios r 
@@ -69,6 +69,7 @@ class ReportController extends BaseController {
             fputcsv($output, [
                 $radio['code'],
                 $radio['serial_number'] ?? '',
+                $radio['mac_address'] ?? '',
                 $radio['model'] ?? '',
                 $radio['status'],
                 $radio['activity_name'] ?? '',

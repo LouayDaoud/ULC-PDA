@@ -10,3 +10,5 @@ DELETE FROM users WHERE username = 'admin';
 INSERT INTO users (username, password_hash) VALUES 
 ('admin', '$2y$10$pHFpeSavWJoBvQzVdUzaZen7cGbQ7.dPht3CsQGoP/8Y4dAmvrKuO');
 
+
+

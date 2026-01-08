@@ -63,11 +63,12 @@ class Radio {
 
     public function create($data) {
         $this->db->query(
-            "INSERT INTO radios (code, serial_number, model, status, activity_id, comments) 
-             VALUES (?, ?, ?, ?, ?, ?)",
+            "INSERT INTO radios (code, serial_number, mac_address, model, status, activity_id, comments) 
+             VALUES (?, ?, ?, ?, ?, ?, ?)",
             [
                 $data['code'],
                 $data['serial_number'] ?? null,
+                $data['mac_address'] ?? null,
                 $data['model'] ?? null,
                 $data['status'] ?? 'disponible',
                 $data['activity_id'] ?? null,
@@ -93,12 +94,13 @@ class Radio {
         
         $this->db->query(
             "UPDATE radios SET 
-                code = ?, serial_number = ?, model = ?, status = ?, 
+                code = ?, serial_number = ?, mac_address = ?, model = ?, status = ?, 
                 activity_id = ?, comments = ? 
              WHERE id = ?",
             [
                 $data['code'],
                 $data['serial_number'] ?? null,
+                $data['mac_address'] ?? null,
                 $data['model'] ?? null,
                 $data['status'] ?? 'disponible',
                 $data['activity_id'] ?? null,

@@ -16,6 +16,16 @@
         </div>
 
         <div class="form-group">
+            <label for="mac_address">Adresse MAC</label>
+            <input type="text" id="mac_address" name="mac_address" 
+                   value="<?= htmlspecialchars($radio['mac_address'] ?? '') ?>" 
+                   placeholder="XX:XX:XX:XX:XX:XX" 
+                   pattern="^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"
+                   maxlength="17">
+            <small style="color: #666;">Format: XX:XX:XX:XX:XX:XX ou XX-XX-XX-XX-XX-XX</small>
+        </div>
+
+        <div class="form-group">
             <label for="model">Modèle</label>
             <input type="text" id="model" name="model" value="<?= htmlspecialchars($radio['model'] ?? '') ?>">
         </div>

@@ -1,6 +1,9 @@
 <div class="page-header">
     <h1 class="page-title">Inventaire des radios</h1>
-    <a href="<?= rtrim(BASE_URL, '/') ?>/?page=radio&action=create" class="btn btn-primary">➕ Ajouter une radio</a>
+    <div style="display: flex; gap: 0.5rem;">
+        <a href="<?= rtrim(BASE_URL, '/') ?>/?page=radio&action=import" class="btn btn-secondary">📤 Importer Excel</a>
+        <a href="<?= rtrim(BASE_URL, '/') ?>/?page=radio&action=create" class="btn btn-primary">➕ Ajouter une radio</a>
+    </div>
 </div>
 
 <div class="filters">
@@ -41,6 +44,7 @@
                 <tr>
                     <th>Code</th>
                     <th>N° série</th>
+                    <th>Adresse MAC</th>
                     <th>Modèle</th>
                     <th>État</th>
                     <th>Activité</th>
@@ -50,13 +54,14 @@
             <tbody>
                 <?php if (empty($radios)): ?>
                 <tr>
-                    <td colspan="6" class="text-center">Aucune radio trouvée</td>
+                    <td colspan="7" class="text-center">Aucune radio trouvée</td>
                 </tr>
                 <?php else: ?>
                 <?php foreach ($radios as $radio): ?>
                 <tr>
                     <td><strong><?= htmlspecialchars($radio['code']) ?></strong></td>
                     <td><?= htmlspecialchars($radio['serial_number'] ?? '-') ?></td>
+                    <td><?= htmlspecialchars($radio['mac_address'] ?? '-') ?></td>
                     <td><?= htmlspecialchars($radio['model'] ?? '-') ?></td>
                     <td>
                         <span class="badge badge-<?= $radio['status'] ?>">
